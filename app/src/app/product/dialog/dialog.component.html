@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>{{ product !== null ? 'Edit Product': 'Add Product' }}</h1>
+<div class="main-container">
+  <div mat-dialog-content class="formAdd-product">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]='productName'>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Unit</mat-label>
+      <input matInput [(ngModel)]='unitPrice'>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Cost</mat-label>
+      <input matInput [(ngModel)]='cost'>
+    </mat-form-field>
+  </div>
+  
+  <div>
+    <button mat-raised-button (click)='close()'>Cancel</button>
+    <button mat-raised-button color='primary' (click)='product !== null? editProduct(): addProduct()'>Save</button>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>New Sale</h1>
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Client</mat-label>
+        <input matInput [(ngModel)]="sale.idClient">
+    </mat-form-field>
+    <form [formGroup]="conceptForm" (ngSubmit)="addConcept()">
+        <mat-form-field>
+            <mat-label>Product</mat-label>
+            <input type="text" formControlName="idProduct" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Units</mat-label>
+            <input type="text" formControlName="units" matInput placeholder="Units">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Amount</mat-label>
+            <input type="text" formControlName="amount" matInput placeholder="Amount">
+        </mat-form-field>
+        <div>
+            <button type="submit" [disabled]="!conceptForm.valid" mat-raised-button>+</button>
+        </div>
+    </form>
+    <div>
+        <h5>Concepts</h5>
+        <table style="width: 100%">
+            <tr>
+                <th>Units</th>
+                <th>Amount</th>
+            </tr>
+            <tr *ngFor="let item of concepts">
+                <td>{{item.units}}</td>
+                <td>{{item.amount}}</td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div mat-dialog-actions>
+    <button  mat-raised-button (click)="close()">Cancel</button>
+    <button  mat-raised-button color="primary" (click)="addSale()">Save</button>
+</div>
